@@ -7,4 +7,3 @@ kubectl get events --all-namespaces --sort-by='.lastTimestamp'
 ```
 kubectl get events --all-namespaces --sort-by='.lastTimestamp' > events.log
 ```
-

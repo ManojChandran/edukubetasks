@@ -25,3 +25,8 @@ kubectl apply -f pod-with-labels.yaml
 ```
 kubectl run nginx-pod-cmd --image=nginx --labels="app=my-app,env=production"
 ```
+
+## Get the IP address of a pod
+```
+kubectl get pod nginx-pod-cmd -o wide
+```
