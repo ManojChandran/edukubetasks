@@ -43,3 +43,7 @@ kubectl get pods -n kube-system | grep -E 'kube-apiserver|kube-controller-manage
 ```
 cat control-plane.txt
 ```
+### Print the pod names and start times to a file
+```
+kubectl get pods -A -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.status.startTime}{"\n"}{end}' > pod_start_times.txt
+```
