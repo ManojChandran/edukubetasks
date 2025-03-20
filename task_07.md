@@ -1,7 +1,7 @@
 # Create a pod with labels
 We can define labels in the metadata.labels section of the Pod manifest.
 
-## manifest file 
+### manifest file 
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -17,16 +17,20 @@ spec:
       ports:
         - containerPort: 80
 ```
-## apply Pod manifest
+### apply Pod manifest
 ```
 kubectl apply -f pod-with-labels.yaml
 ```
-## Command to create Pod
+### Command to create Pod
 ```
 kubectl run nginx-pod-cmd --image=nginx --labels="app=my-app,env=production"
 ```
 
-## Get the IP address of a pod
+### Get the IP address of a pod
 ```
 kubectl get pod nginx-pod-cmd -o wide
+```
+### Find all the pods with a specific label
+```
+kubectl get pods -l app=my-nginx
 ```
