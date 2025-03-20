@@ -16,3 +16,7 @@ spec:
 ```
 kubectl logs sleep-pod -c sleep-container
 ```
+### Check image version of the conatiner without describe
+```
+kubectl get pod sleep-pod -o jsonpath='{.spec.containers[*].image}'
+```
