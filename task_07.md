@@ -30,7 +30,8 @@ kubectl run nginx-pod-cmd --image=nginx --labels="app=my-app,env=production"
 ```
 kubectl get pod nginx-pod-cmd -o wide
 ```
-### Find all the pods with a specific label
+### Find out which pods are available with the label in the cluster
 ```
 kubectl get pods -l app=my-nginx
+kubectl get pods -n nginx-namepace -l app=my-nginx
 ```
