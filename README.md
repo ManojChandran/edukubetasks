@@ -95,3 +95,49 @@ set of simple Kubenetes tasks
 * Create a replicaset which has 3 replicas
 * List all the control plane components and write them to a file
 * Upgrade the cluster
+
+## Kind clusters
+
+To create and destroy a Kind (Kubernetes in Docker) cluster with 3 nodes (1 control-plane, 2 worker nodes), follow these steps:
+
+### Prerequisites
+Ensure you have:
+
+* Docker installed and running.
+* Kind installed (kind version to verify).
+* Kubectl installed (kubectl version to verify).
+
+### Create a YAML config file (kind-cluster.yaml):
+```yaml
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+  - role: control-plane
+  - role: worker
+  - role: worker
+```
+* Run the following command to create the cluster:
+```
+kind create cluster --name my-cluster --config kind-cluster.yaml
+```
+This creates:
+* Control Plane Node
+* Worker Nodes
+
+### Verify Cluster
+Check if the cluster is running:
+```
+kubectl get nodes
+NAME                     STATUS   ROLES           AGE   VERSION
+my-cluster-control-plane Ready    control-plane   1m    v1.28.0
+my-cluster-worker        Ready    <none>          1m    v1.28.0
+my-cluster-worker2       Ready    <none>          1m    v1.28.0
+```
+### Destroy (Delete) the Kind Cluster
+To delete the cluster:
+
+```
+kind delete cluster --name my-cluster
+```
+This removes all resources and stops all nodes.
+
