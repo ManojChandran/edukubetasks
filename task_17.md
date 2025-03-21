@@ -28,8 +28,8 @@ spec:
           ports:
            - containerPort: 80
 ```
+## Scale a deployment to 5 replicas
 ```
-```
-```
+kubectl scale deployment my-deployment --replicas=5
 ```
 ## Manifest file for tetsing roling update
