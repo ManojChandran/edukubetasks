@@ -45,3 +45,7 @@ kubectl patch cronjob print-date-job -p '{"spec": {"suspend": false}}'
 ```
 kubectl get cronjob print-date-job -o yaml | grep suspend
 ```
+### Delete a JOB
+```
+kubectl delete cronjob print-date-job
+```
